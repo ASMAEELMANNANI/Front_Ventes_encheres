@@ -1,0 +1,57 @@
+.grand-espace {
+    white-space: pre;
+}
+.contact form div {
+    display: flex;
+}
+.contact textarea {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+.contact input {
+    margin-bottom: 20px;
+    margin-right: 10px;
+}
+.contact form {
+    padding: 30px;
+}
+.contact-button{
+    margin-left: 700px;
+}
+.proposer-button{
+    margin-left: 600px;
+
+}
+.contact select{
+    width: 400px;
+    height: 52px;
+    border-radius:10px ;
+    border-color: #27ae60;
+}
+.contact select option {
+    /* Add your styling for options here */
+    background-color: #ffffff;
+    color: #333333;
+    padding: 8px 12px;
+    font-size: 14px;
+    border-bottom: 1px solid #dddddd;
+}
+
+/* Style the last child option to remove the border-bottom */
+.contact select option:last-child {
+    border-bottom: none;
+}
+@media screen and (max-width: 768px) {
+    .contact h4 {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    .contact form div {
+        flex-direction: column;
+    }
+    .contact input {
+        width: 100%;
+    }
+}
