@@ -88,9 +88,10 @@ const Registration = ({ isOpen, onRequestClose }) => {
       if (Object.keys(errors).length === 0) {
         // si pas d'erreur ,anzido hna fonction backend de sign
 
+        console.log("Im here ");
         try {
 
-          const response = await fetch('http://localhost:8222/api/clients/signup',
+          const response = await fetch('http://localhost:8088/api/clients/signup',
              {
                method: 'POST',
                headers: {
@@ -116,8 +117,9 @@ const Registration = ({ isOpen, onRequestClose }) => {
             // // Redirect to the login page
             // window.location.href = '/signIn';
             // setModalVisibility(true); // Show the modal only for a successful response
+
             window.alert("Votre compte est bien crée");
-            history.push("/annonces");
+            history.push("http://localhost:3000/");
 
 
           } else {

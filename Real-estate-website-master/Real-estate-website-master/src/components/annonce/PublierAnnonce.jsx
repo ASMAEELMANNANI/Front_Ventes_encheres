@@ -9,6 +9,8 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 const PublierAnnonce=() => {
 
     const history = useHistory();
+    const [image,setImages]=useState([]);
+    const userId = localStorage.getItem("userId");
  ///L'objet a remplir et a envoyer au backend
     const [data, setData] = useState({
         productName: '',
@@ -17,56 +19,52 @@ const PublierAnnonce=() => {
         dateFin: '',
         description:'',
         idCategory:'',
-        idV:1
-        // image:''
+        idV:userId,
+        images:''
     });
 
 ///La fonction permet de changer les valeurs de l'objet par les valeurs saisie
     const handlChanged = (e) => {
 
-        if (e.target.name === 'image') {
-            console.log(e.target.value);
-            setData({ ...data, image: e.target.files[0]});
-            console.log(data.image);
-        }
-        else {
             console.log(e.target.name);
             setData({ ...data, [e.target.name]: e.target.value });
             console.log(e.target.value);
 
-        }
+
     };
 
+    const handleFile = (e) =>{
+       // let images = e.target.files;
+        for(let i=0; i< e.target.files.length; i++)
+        {
+            image.push(e.target.files[i]);
+        }
+        setData({ ...data, [e.target.name]: image });
+        console.log(data.images);
 
+
+    };
 ///La fonction publier permet d'enregistrer l'annonce dans la base de donnes
     const publier = (e) => {
         e.preventDefault();
-
-        ///L'objet a enregitstre
-        // const formData = new FormData();
-        // formData.append('image', data.image);
-        // formData.append('productName', data.productName);
-        // formData.append('idCategory', data.idCategory);
-        // formData.append('description', data.description);
-        // formData.append('dateDeb', data.dateDeb);
-        // formData.append('dateFin', data.dateFin);
-        // formData.append('prixDepart', data.prixDepart);
-
+        //handleFile(e);
+        console.log(data);
 
 ///Envoie de la requete
-fetch('http://localhost:8087/api/annonces/publier', {
+fetch('http://localhost:8087/annonces/publier', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
+        body: JSON.stringify(
+            {
             "productName": data.productName,
-            "idCategory": data.idCategory,
+            "idCategory": 1,
             "description": data.description,
             "dateDeb": data.dateDeb,
             "dateFin": data.dateFin,
             "prixDepart": data.prixDepart,
-            "idV": data.idV
+            "idV":userId,
         })
     })
     .then(response => {
@@ -144,6 +142,9 @@ return (
                         <div>
                             <input aria-placeholder={"Date de début"}  onChange={handlChanged} name='dateDeb' type={"datetime-local"}/>
                             <input aria-placeholder={"Date de fin"}  onChange={handlChanged} name='dateFin' type={"datetime-local"}/>
+                        </div>
+                        <div>
+                            <input aria-placeholder={"Les images"}  onChange={handleFile} name='images' type={"file"} accept={".png,.jpg, .jpeg"} multiple />
                         </div>
                         {/* <h4 className={"grand-espace"}>Image du produit                                                               </h4> <br />
                         <div>

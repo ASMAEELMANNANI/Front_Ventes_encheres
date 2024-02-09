@@ -22,7 +22,7 @@ const RecentCard = () => {
     useEffect(() => {
     
         // Envoie du requete au port du service d'annonces
-        fetch('http://localhost:8087/api/annonces')
+        fetch('http://localhost:8087/annonces')
         
             .then(response => response.json())
             .then(data => {
@@ -43,14 +43,15 @@ const RecentCard = () => {
         {/* {list.map((val, index) => { */}
            {annonces.map((val, index) => {
           //const { cover, category, location, name, price, type } = val
-          const { id, productName, description, dateDeb, dateFin, prixDepart, bestPrice, statut} = val
-
+          const { id, productName, description, dateDeb, dateFin, prixDepart, bestPrice, statut,images} = val
+          const imageArray = images ? images.split(",") : [];
+          console.log("i"+imageArray[0]);
           
           return (
             <div className='box shadow' key={index}>
               
               <div className='img'>
-                <img src="../images/annonces/th.jpeg" alt='' />
+                <img src ={`/images/${imageArray[0]}`} alt='' />
                {/*<img src={image} alt='' />*/}
               </div>
 
@@ -72,7 +73,7 @@ const RecentCard = () => {
                     <span className='arrow'>→</span>
                     <span className='current-price'>{bestPrice} DH</span>
                 </div>
-                <Link className='btn2' to={`/Details/${id}/${productName}/${description}/${dateDeb}/${dateFin}/${bestPrice}`}>
+                <Link className='btn2' to={`/newdetails?id=${id}`}>
                     Détails
                 </Link>
               </div>

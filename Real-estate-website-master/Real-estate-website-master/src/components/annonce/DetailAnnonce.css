@@ -1,0 +1,52 @@
+/* DetailAnnonce.css */
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.content {
+  display: flex;
+  width: 80%;
+}
+
+.image-section, .info-section {
+  width: 40%;
+}
+
+.info-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 20px;
+  margin-bottom :-20px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 0px 10px 50px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.validate {
+  background-color: #82c91e;
+  color: #fff;
+}
+
+.cancel {
+  background-color: #ff3333;
+  color: #fff;
+}
+
+.p{
+  margin-bottom :5px;
+}

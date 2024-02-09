@@ -1,4 +1,8 @@
-/* Modal.css */
+.button-container {
+    display: flex;
+   
+}
+
 
 /* Modal Overlay */
 .modal-overlay {
@@ -31,17 +35,20 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 .modal-button2{
-   margin-top: 10px;
-    margin-left: 140px;
-    height: 40px;
-}.modal-button
+    margin-top: -350px;
+    margin-right:560px ;
+    margin-left : -40px;
+    height: 35px;
+}
+.modal-button
  {
-   margin-top: 30px;
-    margin-left: 145px;
-    height: 40px;
+    margin-top: -350px;
+    margin-right: 70px;
+    height: 35px;
 }
 /*input {*/
 /*    margin-bottom: 20px;*/
 /*    margin-right: 10px;*/
 /*}*/
 /* You can add more styles based on your modal content and design */
+

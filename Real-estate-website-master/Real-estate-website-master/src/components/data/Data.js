@@ -1,4 +1,7 @@
+const userId = localStorage.getItem("userId");
 export const nav = [
+
+ 
   {
     text: "Acceuil",
     path: "/",
@@ -11,7 +14,7 @@ export const nav = [
   //   text: "services",
   //   path: "/services",
   // },
-  {
+  userId === "0" ? null :{
     text: "Annonces",
     path: "/annonces",
   },

@@ -7,7 +7,7 @@ import {useHistory} from "react-router-dom";
 
 const Annonces = () => {
     const history = useHistory();
-
+    
     const pubAnnonce =() =>{
          // window.history.pushState(null,null,'/publierAnnonce');
         history.push('/publierAnnonce');

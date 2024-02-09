@@ -1,0 +1,33 @@
+.search-Bar{
+    height: 100px;
+    width:900px;
+    padding: 10px;
+    align-items: center;
+    background-color: #f2f8f5;
+    margin-top: 20px;
+    margin-left: 120px;
+    border: 2px solid whitesmoke;
+    align-content: space-between;
+
+}
+
+select {
+    height: 50px;
+    margin-top: 15px;
+    width: 150px;
+    border: 1px solid white;
+    background-color: white;
+    margin-left: 20px;
+    font-size: 13px;
+    font-family: "Poppins", sans-serif;
+    color: #b0aeae;
+}
+select option{
+    background-color: white;
+    font-family: "Poppins", sans-serif}
+.search-Button{
+    margin-left: 600px;
+    margin-top: -49px;
+    background-color: #1c1c1c;
+}
+

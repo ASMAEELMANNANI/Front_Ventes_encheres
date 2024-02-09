@@ -5,6 +5,7 @@ import img from '../images/login.jpg';
 import Registration from './Registration';
 import {useHistory} from "react-router-dom";
 
+
 const customStyles = {
   overlay: {
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
@@ -34,7 +35,7 @@ const customStyles = {
   },
 };
 
-const SignIn = ({ isOpen, onRequestClose }) => {
+const SignIn = ({isOpen, onRequestClose}) => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -42,7 +43,7 @@ const SignIn = ({ isOpen, onRequestClose }) => {
   const [passwordError, setPasswordError] = useState('');
   const [isSignInOpen, setIsSignInOpen] = useState(true);
   const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
-
+  
   
 
   const openRegistrationModal = () => {
@@ -60,7 +61,7 @@ const SignIn = ({ isOpen, onRequestClose }) => {
   //fonction de login
   const sendAuthenticationData = async (email, password) => {
     try {
-      const response = await fetch('http://localhost:8222/api/clients/login', {//bdloha b li f backend dialna
+      const response = await fetch('http://localhost:8088/api/clients/login', {//bdloha b li f backend dialna
         method: 'POST',
         headers: {
           'Content-Type': 'application/json', // Type de contenu JSON
@@ -72,17 +73,21 @@ const SignIn = ({ isOpen, onRequestClose }) => {
             }), // Envoi des données au format JSON
       });
   
-      if (!response.ok) {
+      /*if (!response.ok) {
         throw new Error('Erreur lors de l\'authentification');
       }
       const result=await response.text();
       switch (result) {
         case "1":
           // Login success for client
+          localStorage.setItem("isLoggedIn", "true");
+          onRequestClose();
           history.push('/annonces');
           break;
         case "2":
           // Login success for admin
+          localStorage.setItem("isLoggedIn", "true");
+          onRequestClose();
           history.push('/valider');
           break;
 
@@ -96,7 +101,30 @@ const SignIn = ({ isOpen, onRequestClose }) => {
 
           break;
       }
+       */
 
+      if(response.ok)
+      {
+        const result = await response.json();
+         // Vérifier si le rôle est "admin"
+        if (result.role === "admin") {
+          // Si le rôle est "admin", redirigez vers '/annonces'
+          console.log(result.id);
+          localStorage.setItem("isLoggedIn", "true");
+          localStorage.setItem("userId", result.id);
+          onRequestClose();
+          history.push(`/valider?id=${result.id}`);
+        } else {
+          // Si le rôle n'est pas "admin", redirigez vers '/valider'
+          localStorage.setItem("isLoggedIn", "true");
+          localStorage.setItem("userId", result.id);
+          onRequestClose();
+          history.push(`/annonces?id=${result.id}`);
+        }
+
+      }else{
+        window.alert("Email ou Mot de passe est incorrecte")
+      }
 
       // window.location.href = '/annonces';  //aller vers page des annonces
 

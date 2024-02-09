@@ -14,9 +14,14 @@ import signIn from "./components/Auth/SignIn";
 import Registration from "./components/Auth/Registration"
 import AdvertisementCard from "./components/annonce/validerAnnonce";
 import DetailsPage from "./components/annonce/DetailsPage";
+import Profile from "./components/profile/profile";
+import DetailAnnonce from "./components/annonce/DetailsAnnonce"
+import MesAnnonces from "./components/annonce/MesAnnonces"
+import NewPageDetails from "./components/annonce/NewPageDetails"
 
 function App() {
 
+  
   return (
       <>
         <Router>
@@ -31,7 +36,10 @@ function App() {
             <Route exact path='/signIn' component={signIn}/>
             <Route exact path='/signup' component={Registration}/>
             <Route exact path='/valider' component={DetailsPage}/>
-
+            <Route exact path="/profile" component={Profile}/>
+            <Route exact path='/detailAnnonce' component={DetailAnnonce}/>
+            <Route exact path='/mesAnnonces' component={MesAnnonces}/>
+            <Route exact path='/newdetails' component={NewPageDetails}/>
             {/*<Route exact path='/Details' component={Details}/>*/}
             {/*<Route path='/Details/:id/:product_name/:category/:date_deb/:date_fin/:bestPrice' component={Details}/>*/}
             <Route path='/Details/:id/:category/:name' component={Details}/>

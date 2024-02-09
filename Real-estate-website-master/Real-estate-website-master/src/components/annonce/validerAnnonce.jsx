@@ -1,39 +1,20 @@
 import React from "react";
-const customStyles = {
+import { Link } from "react-router-dom";
 
-    container: {
-        display: 'flex',
-        justifyContent: 'space-between',
-        marginTop: '10px',
-    },
-
-
-};
-const AdvertisementCard = ({ id, name, category,prixDepart,description,vendeurname,vendeurprenom,phone , onValidate, onCancel }) => {
+const AdvertisementCard = ({ id, name, category, prixDepart, description, vendeurname, vendeurprenom, phone }) => {
     return (
-        <div className="details-card shadow">
-            <h4>Nom du produit : </h4>
+        <div className="details-card" style={{ borderRadius: '30px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)', padding: '30px', marginBottom: '10px', marginTop: '30px', maxHeight: '200px' }}>
+            <h4 style={{ fontWeight: 'bold' }}>Nom du produit  </h4>
             <p>{name}</p>
 
-            <h4>Categorie: </h4>
-            <p>{category}</p>
-
-            <h4>Description: </h4>
-            <p>{description}</p>
-
-            <h4>Vendeur: </h4>
+            <h4 style={{ fontWeight: 'bold' }}>Vendeur </h4>
             <p>{vendeurname}{  } {vendeurprenom}</p>
 
-            <h4>Numéro de téléphone: </h4>
-            <p>{phone}</p>
-
-            <div style={customStyles.container}>
-                <button onClick={() => onValidate(id)} className="valider-button">
-                    Valider
-                </button>
-
-                <button onClick={() => onCancel(id)} className="annuler-button">
-                    Annuler
+            <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '10px' }}>
+                <button className="annuler-button">
+                    <Link to={`/detailAnnonce?id=${id}`} className="button-link" style={{ color: 'white' }}>
+                        Voir détails
+                    </Link>
                 </button>
             </div>
         </div>

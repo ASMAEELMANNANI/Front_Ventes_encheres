@@ -1,4 +1,3 @@
-// Modal.js
 import React, {useState} from "react";
 import "./Modal.css";
 
@@ -28,7 +27,12 @@ const Modal = ({ isVisible, onClose,onProposePrice,minPrice }) => {
                     <h2>Proposition de prix</h2>
                     <br/>
                     <input type="number" min={minPrice} placeholder="Enter un prix" onChange={handlePriceChange} name={'prix'} /><br/>
-                    <button  className={"modal-button2"}  onClick={handleEnregistrerClick} >Enregistrer</button>
+                    <div className="button-container">
+                        <button className={"modal-button"} onClick={handleEnregistrerClick}>Enregistrer</button>
+                        <button className={"modal-button2"} onClick={() => onClose()}>Annuler</button>
+                    </div>
+                    {/*<button  className={"modal-button2"}  onClick={handleEnregistrerClick} >Enregistrer</button>*/}
+                    {/*<button  className={"modal-button2"}  onClick={()=>      onClose()} >Annuler</button>*/}
 
                 </div>
             </div>
