@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import MyCards from "../home/recent/MyCards";
 import "./mesannonces.css";
-const MesAnnonces = () => {
+const AllAnnonces = () => {
     const [category, setCategory] = useState('');
     const [ville, setVille] = useState('');
     const [status, setStatus] = useState('');
@@ -28,7 +28,7 @@ const MesAnnonces = () => {
     useEffect(() => {
 
             // Envoie du requete au port du service d'annonces
-            fetch(`http://localhost:8087/annonces/annonceClient/${userId}`)
+            fetch(`http://localhost:8087/annonces`)
 
                 .then(response => response.json())
                 .then(data => {
@@ -50,10 +50,10 @@ const MesAnnonces = () => {
             <div className={"search-Bar"}>
                 <select id="select-option" name={"category"} onChange={e => setCategory(e.target.value)}>
                     <option value="">Catégorie</option>
-                    <option value="villa">Villa</option>
-                    <option value="appartement">Appartement</option>
-                    <option value="décoration">Décoration</option>
-                    <option value="bijoux">Bijoux</option>
+                    <option value="Villa">Villa</option>
+                    <option value="Appartement">Appartement</option>
+                    <option value="Décoration">Décoration</option>
+                    <option value="Bijoux">Bijoux</option>
                 </select>
                 <select id="select-option" name={"ville"} onChange={e => setVille(e.target.value)}>
                     <option value="">Ville</option>
@@ -93,4 +93,4 @@ const MesAnnonces = () => {
     );
 };
 
-export default MesAnnonces;
+export default AllAnnonces;

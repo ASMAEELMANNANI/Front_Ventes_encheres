@@ -7,23 +7,23 @@ const Hero = () => {
     <>
       <section className='hero'>
         <div className='container'>
-          <Heading title='Search Your Next Home ' subtitle='Find new & featured property located in your local city.' />
+          <Heading title='Trouvez une annonce qui vous convient' subtitle='Trouvez une annonce selon vos critères.' />
 
           <form className='flex'>
             <div className='box'>
-              <span>City/Street</span>
+              <span>Ville</span>
               <input type='text' placeholder='Location' />
             </div>
             <div className='box'>
-              <span>Property Type</span>
-              <input type='text' placeholder='Property Type' />
+              <span>Type</span>
+              <input type='text' placeholder=' Type' />
             </div>
             <div className='box'>
-              <span>Price Range</span>
-              <input type='text' placeholder='Price Range' />
+              <span>Prix</span>
+              <input type='text' placeholder='Prix' />
             </div>
             <div className='box'>
-              <h4>Advance Filter</h4>
+              <h4>Filtrer</h4>
             </div>
             <button className='btn1'>
               <i className='fa fa-search'></i>

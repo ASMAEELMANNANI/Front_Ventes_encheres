@@ -90,6 +90,13 @@ const Header = () => {
                     <MenuItem onClick={handleClose}>Hidden</MenuItem>  
                     <MenuItem component={Link} to={`/profile?id=${userId}`} onClick={handleClose}><i className="fa fa-user"></i> Profile</MenuItem> {/* Utiliser Link pour la navigation */}
                     <MenuItem component={Link} to={`/mesAnnonces?id=${userId}`} onClick={handleClose}><i className="far fa-file-alt"></i>  Mes annonces</MenuItem>
+                    <>
+                      {userId == 1 && (
+                          <MenuItem component={Link} to={`/allannonces?id=${userId}`} onClick={handleClose}>
+                              <i className="far fa-file-alt"></i> Toutes les annonces
+                          </MenuItem>
+                      )}
+                    </>
                     <MenuItem onClick={handleSignOut}><i className="fa fa-sign-out"></i>  Déconnexion</MenuItem>
                   </Menu>
                 </div>

@@ -59,7 +59,7 @@ fetch('http://localhost:8087/annonces/publier', {
         body: JSON.stringify(
             {
             "productName": data.productName,
-            "idCategory": 1,
+            "idCategory": data.idCategory,
             "description": data.description,
             "dateDeb": data.dateDeb,
             "dateFin": data.dateFin,
@@ -138,7 +138,7 @@ return (
                             <input name='productName'  onChange={handlChanged} type={"text"} placeholder={"Nom du produit"}/>
                             <input name='prixDepart' onChange={handlChanged} type={"number"} min={0} placeholder={"Prix initial"}/>
                         </div>
-                        <h4 className={"grand-espace"}>Date de début                                                                                 Date de fin</h4> <br />
+                        <h4 className={"grand-espace"}>Date de début                                                                                                             Date de fin</h4> <br />
                         <div>
                             <input aria-placeholder={"Date de début"}  onChange={handlChanged} name='dateDeb' type={"datetime-local"}/>
                             <input aria-placeholder={"Date de fin"}  onChange={handlChanged} name='dateFin' type={"datetime-local"}/>
@@ -146,18 +146,21 @@ return (
                         <div>
                             <input aria-placeholder={"Les images"}  onChange={handleFile} name='images' type={"file"} accept={".png,.jpg, .jpeg"} multiple />
                         </div>
-                        {/* <h4 className={"grand-espace"}>Image du produit                                                               </h4> <br />
+                        
                         <div>
-                            <input aria-placeholder={"Image du produit"} name='image' accept=".jpg, .jpeg, .png, .gif" onChange={handlChanged} type={"File"}/>
+                           
                             <select  name={"idCategory"} onChange={handlChanged} placeholder={"Categorie"}>
-                                <option value={"Appartement"}>appartement</option>
-                                <option value={"Vehicule"}>Vehicule</option>
-                                <option value={"Villa"}>Villa</option>
-                                <option value={"Décoration"}>Décoration</option>
-                                <option value={"Accesoire"}>Décoration</option>
+                                <option value={""}>Catégorie du produit</option>
+                                <option value={"1"}>Appartement</option>
+                                <option value={"2"}>Vehicule</option>
+                                <option value={"3"}>Villa</option>
+                                <option value={"4"}>Décoration</option>
+                                <option value={"5"}>Bijoux</option>
                             </select>
 
-                        </div> */}
+                        </div> 
+
+
 
                         <textarea name='description' onChange={handlChanged} placeholder={'Description de produit'} cols='30' rows='8'></textarea>
                 <button type={"submit"} className={"contact-button"} onClick={publier}>Publier l'annonce</button>

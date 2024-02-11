@@ -25,18 +25,19 @@
 
 }
 .contact select{
-    width: 400px;
-    height: 52px;
+    width: 1080px;
+    height: 40px;
     border-radius:10px ;
-    border-color: #27ae60;
+    border-color: #bdc0be;
+    margin-bottom: 20px;
 }
 .contact select option {
     /* Add your styling for options here */
-    background-color: #ffffff;
-    color: #333333;
+    background-color: #f9f6f6;
+    color: #131212;
     padding: 8px 12px;
     font-size: 14px;
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid #bdbaba;
 }
 
 /* Style the last child option to remove the border-bottom */

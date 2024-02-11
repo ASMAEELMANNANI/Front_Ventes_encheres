@@ -133,10 +133,7 @@ const handleCancel = async (id) => {
                 <br />
                 <p>{annonceDetails.description}</p>
                 <br />
-                <p><strong>Catégorie :</strong></p>
-                <br />
-                <p>{annonceDetails.category}</p>
-                <br />
+               
                 {annonceDetails.vendeurDetails && (
                   <>
                     <p><strong>Vendeur :</strong></p>

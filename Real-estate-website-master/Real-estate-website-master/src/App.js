@@ -18,7 +18,7 @@ import Profile from "./components/profile/profile";
 import DetailAnnonce from "./components/annonce/DetailsAnnonce"
 import MesAnnonces from "./components/annonce/MesAnnonces"
 import NewPageDetails from "./components/annonce/NewPageDetails"
-
+import AllAnnonces from "./components/annonce/AllAnnonces"
 function App() {
 
   
@@ -40,6 +40,7 @@ function App() {
             <Route exact path='/detailAnnonce' component={DetailAnnonce}/>
             <Route exact path='/mesAnnonces' component={MesAnnonces}/>
             <Route exact path='/newdetails' component={NewPageDetails}/>
+            <Route exact path='/allannonces' component={AllAnnonces}/>
             {/*<Route exact path='/Details' component={Details}/>*/}
             {/*<Route path='/Details/:id/:product_name/:category/:date_deb/:date_fin/:bestPrice' component={Details}/>*/}
             <Route path='/Details/:id/:category/:name' component={Details}/>

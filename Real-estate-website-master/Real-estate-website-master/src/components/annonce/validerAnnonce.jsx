@@ -10,7 +10,7 @@ const AdvertisementCard = ({ id, name, category, prixDepart, description, vendeu
             <h4 style={{ fontWeight: 'bold' }}>Vendeur </h4>
             <p>{vendeurname}{  } {vendeurprenom}</p>
 
-            <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '10px' }}>
+            <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '-30px' }}>
                 <button className="annuler-button">
                     <Link to={`/detailAnnonce?id=${id}`} className="button-link" style={{ color: 'white' }}>
                         Voir détails

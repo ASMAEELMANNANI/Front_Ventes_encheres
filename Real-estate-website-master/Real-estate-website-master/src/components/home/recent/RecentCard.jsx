@@ -22,7 +22,7 @@ const RecentCard = () => {
     useEffect(() => {
     
         // Envoie du requete au port du service d'annonces
-        fetch('http://localhost:8087/annonces')
+        fetch('http://localhost:8087/annonces/enCours')
         
             .then(response => response.json())
             .then(data => {
@@ -39,7 +39,7 @@ const RecentCard = () => {
 
     return (
     <>
-      <div className='content grid3 mtop'>
+      <div className='grid3 mtop'>
         {/* {list.map((val, index) => { */}
            {annonces.map((val, index) => {
           //const { cover, category, location, name, price, type } = val
